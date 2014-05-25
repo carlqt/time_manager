@@ -1,4 +1,5 @@
 TimeManager::Application.routes.draw do
+  devise_for :users
   get "site/index"
 
   root 'site#index'
