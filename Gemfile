@@ -34,7 +34,7 @@ group :development do
   gem 'better_errors'
   gem 'pry-nav'
   gem 'pry'
-  gem 'rails-pry'
+  gem 'pry-rails'
   gem 'haml-rails'
   gem 'puma'
   gem 'annotate'
