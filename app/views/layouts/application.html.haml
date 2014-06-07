@@ -1,0 +1,35 @@
+!!! 5
+%html
+  %head
+    %title TimeManager
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{href: "#"} Project name
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{href: "#"} Home
+            %li
+              %a{href: "#about"} About
+            %li
+              %a{href: "#contact"} Contact
+        / /.nav-collapse
+    .container
+      - if notice
+        .alert.alert-success= notice
+      - elsif alert
+        .alert.alert-danger= alert
+      = link_to 'Logout', destroy_user_session_path, method: :delete
+      %br/
+      = link_to('admin', users_path) if current_user.try(:admin)
+      = yield

@@ -1,11 +1,13 @@
 TimeManager::Application.routes.draw do
   devise_for :users
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
-
+  # devise_scope :user do # makes devise sign_in path the root
+  #   root to: "devise/sessions#new"
+  # end
+  resources :users
   get "site/index"
+
+  root "site#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
