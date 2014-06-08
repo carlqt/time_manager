@@ -31,5 +31,5 @@
         .alert.alert-danger= alert
       = link_to 'Logout', destroy_user_session_path, method: :delete
       %br/
-      = link_to('admin', users_path) if current_user.try(:admin)
+      = link_to('admin', admins_path) if current_user.try(:admin)
       = yield
