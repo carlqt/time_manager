@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
  
   def time_in
     unless is_timed_in?
-      self.users_time.create(logged_in_time: Time.now, username: self.username, email: self.email)
+      self.users_time.create(logged_in_time: Time.now, username: self.username, email: self.email, logged_in_date: Time.now.to_date)
     end
 
   end
@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   end
 
   def is_timed_in?
-    true if self.users_time
+    true if self.users_time.exists? or self.users_time.logged_in_date == Time.now.to_date
   end
 
 end

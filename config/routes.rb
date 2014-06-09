@@ -1,4 +1,6 @@
 TimeManager::Application.routes.draw do
+  post "users_time/in"
+  put "users_time/out"
   devise_for :users
 
   # devise_scope :user do # makes devise sign_in path the root
