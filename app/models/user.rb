@@ -25,4 +25,20 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :admin
+  has_many :users_time
+ 
+  def time_in
+    unless is_timed_in?
+      self.users_time.create(logged_in_time: Time.now, username: self.username, email: self.email)
+    end
+
+  end
+
+  def time_out
+  end
+
+  def is_timed_in?
+    true if self.users_time
+  end
+
 end

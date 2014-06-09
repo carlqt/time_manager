@@ -18,11 +18,11 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{href: "#"} Home
+              = link_to 'Home', site_index_path
             %li
-              %a{href: "#about"} About
+              = link_to 'Time in', '#' 
             %li
-              %a{href: "#contact"} Contact
+              = link_to 'Time out', '#'
         / /.nav-collapse
     .container
       - if notice

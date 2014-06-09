@@ -6,12 +6,14 @@
       Email
     %th
       Username
+    %th
+      Admin
 
   - @users.each do |user|
     %tr
       %td= link_to user.email, admin_path(user)
       %td= user.username
-
+      %td= check_box_tag :admin, nil, is_admin?(user)
 %br
 
 = link_to 'New User', new_admin_path
