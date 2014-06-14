@@ -29,7 +29,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-group :development do
+group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'pry-nav'
@@ -38,6 +38,8 @@ group :development do
   gem 'haml-rails'
   gem 'puma'
   gem 'annotate'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

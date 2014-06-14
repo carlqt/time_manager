@@ -24,8 +24,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  # Associations
   has_one :admin
   has_many :users_time
+
+  # scopes
+  # scope :find_current_user, -> { where(logged_in_date: Time.now.to_date).last }
  
   def time_in
     unless is_timed_in?
@@ -35,10 +39,15 @@ class User < ActiveRecord::Base
   end
 
   def time_out
+    find_current_user.update_attribute(:logged_out_time, Time.now)
   end
 
   def is_timed_in?
-    true if self.users_time.exists? or self.users_time.logged_in_date == Time.now.to_date
+    true if self.users_time.exists? or self.users_time.try(:logged_in_date) == Time.now.to_date
+  end
+
+  def find_current_user
+    self.where(logged_in_date: Time.now.to_date).last
   end
 
 end
