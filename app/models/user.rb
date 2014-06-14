@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def find_current_user
-    self.where(logged_in_date: Time.now.to_date).last
+    self.users_time.where(logged_in_date: Time.now.to_date).last
   end
 
 end

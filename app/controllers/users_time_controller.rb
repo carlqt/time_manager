@@ -5,5 +5,7 @@ class UsersTimeController < ApplicationController
   end
 
   def out
+    current_user.time_out
+    render nothing: true
   end
 end

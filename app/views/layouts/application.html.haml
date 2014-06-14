@@ -22,7 +22,7 @@
             %li
               = link_to 'Time in', users_time_in_path, method: :post
             %li
-              = link_to 'Time out', '#'
+              = link_to 'Time out', users_time_out_path, method: :put, remote: true
         / /.nav-collapse
     .container
       - if notice
